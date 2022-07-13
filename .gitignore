@@ -3,4 +3,15 @@
 /public_html/statment
 /public_html/Tamex_labels
 /public_html/uploads
-
+/node_modules
+/isnaad/hot
+/isnaad/storage
+/isnaad/storage/*.key
+isnaad/vendor
+isnaad/.env
+isnaad/.env.backup
+isnaad/.phpunit.result.cache
+isnaad/Homestead.json
+isnaad/Homestead.yaml
+isnaadn/pm-debug.log
+isnaad/yarn-error.log
