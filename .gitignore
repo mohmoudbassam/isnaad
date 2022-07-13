@@ -15,3 +15,5 @@ isnaad/Homestead.json
 isnaad/Homestead.yaml
 isnaadn/pm-debug.log
 isnaad/yarn-error.log
+isnaad/node_modules
+public_html/
