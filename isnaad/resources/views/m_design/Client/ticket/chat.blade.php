@@ -104,7 +104,7 @@
 
     window.Echo.channel('ticket.' + '{{$ticket->id}}')
         .listen('SendTicketMessage', (e) => {
-            console.log(e)
+            console.log(e,'test')
             var messagesEl = KTUtil.find('kt_chat_modal', '.messages');
             var scrollEl = KTUtil.find('kt_chat_modal', '.scroll');
             var textarea = KTUtil.find('kt_chat_modal', 'textarea');

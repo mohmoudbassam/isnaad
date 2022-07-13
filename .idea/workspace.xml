@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="338e3434-6bc6-498f-9400-3cd1f5dc3510" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/isnaad/resources/views/m_design/Client/ticket/chat.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/isnaad/resources/views/m_design/Client/ticket/chat.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/isnaad/storage/framework/cache/data/85/5f/855f92484c8c414d36c1b25cb24876e30229cbbf" beforeDir="false" afterPath="$PROJECT_DIR$/isnaad/storage/framework/cache/data/85/5f/855f92484c8c414d36c1b25cb24876e30229cbbf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -440,7 +441,7 @@
       <workItem from="1657702335800" duration="16000" />
       <workItem from="1657707197891" duration="71000" />
       <workItem from="1657707505471" duration="736000" />
-      <workItem from="1657730340746" duration="951000" />
+      <workItem from="1657730340746" duration="1300000" />
     </task>
     <servers />
   </component>
