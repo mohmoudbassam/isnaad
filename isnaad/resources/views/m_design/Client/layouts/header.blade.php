@@ -34,6 +34,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
     <link rel="stylesheet" type="text/css" href="{{url('/')}}/app-assets/css/mdtimepicker.min.css">
     <link rel="stylesheet" type="text/css" href="{{url('/')}}/app-assets/css/mdtimepicker-theme.css">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!--end::Global Theme Styles-->
     <!--begin::Layout Themes(used by all pages)-->
     <!--end::Layout Themes-->
