@@ -23,48 +23,50 @@
                     <div class="messages">
                         <!--begin::Message In-->
 
-                            @foreach($replies as $replay)
+                        @foreach($replies as $replay)
 
-                                @if($replay->sender->is(auth()->user()))
-                                    <div class="d-flex flex-column mb-5 align-items-end">
-                                        <div class="d-flex align-items-center">
-                                            <div>
-                                                <span class="text-muted font-size-sm">{{$replay->created_at->diffForHumans()}}</span>
-                                                <a href="#"
-                                                   class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">You</a>
-                                            </div>
-                                            <div class="symbol symbol-circle symbol-40 ml-3">
-                                                <img alt="Pic" src="assets/media/users/300_21.jpg"/>
-                                            </div>
+                            @if($replay->sender->is(auth()->user()))
+                                <div class="d-flex flex-column mb-5 align-items-end">
+                                    <div class="d-flex align-items-center">
+                                        <div>
+                                            <span
+                                                class="text-muted font-size-sm">{{$replay->created_at->diffForHumans()}}</span>
+                                            <a href="#"
+                                               class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">You</a>
                                         </div>
-                                        <div
-                                            class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">
-                                            {{$replay->comment}}
+                                        <div class="symbol symbol-circle symbol-40 ml-3">
+                                            <img alt="Pic" src="assets/media/users/300_21.jpg"/>
                                         </div>
                                     </div>
+                                    <div
+                                        class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">
+                                        {{$replay->comment}}
+                                    </div>
+                                </div>
 
-                                @else
-                                    <div class="d-flex flex-column mb-5 align-items-start">
-                                        <div class="d-flex align-items-center">
-                                            <div class="symbol symbol-circle symbol-40 mr-3">
-                                                <img alt="Pic" src="assets/media/users/300_12.jpg"/>
-                                            </div>
-                                            <div>
-                                                <a href="#"
-                                                   class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">{{$replay->sender->name}}
-                                                    </a>
-                                                <span class="text-muted font-size-sm">{{$replay->created_at->diffForHumans()}}</span>
-                                            </div>
+                            @else
+                                <div class="d-flex flex-column mb-5 align-items-start">
+                                    <div class="d-flex align-items-center">
+                                        <div class="symbol symbol-circle symbol-40 mr-3">
+                                            <img alt="Pic" src="assets/media/users/300_12.jpg"/>
                                         </div>
-                                        <div
-                                            class="mt-2 rounded p-5 bg-light-success text-dark-50 font-weight-bold font-size-lg text-left max-w-400px">
-                                            {{$replay->comment}}
+                                        <div>
+                                            <a href="#"
+                                               class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">{{$replay->sender->name}}
+                                            </a>
+                                            <span
+                                                class="text-muted font-size-sm">{{$replay->created_at->diffForHumans()}}</span>
                                         </div>
                                     </div>
+                                    <div
+                                        class="mt-2 rounded p-5 bg-light-success text-dark-50 font-weight-bold font-size-lg text-left max-w-400px">
+                                        {{$replay->comment}}
+                                    </div>
+                                </div>
                             @endif
 
-                    @endforeach
-                    <!--end::Message In-->
+                        @endforeach
+                        <!--end::Message In-->
                         <!--begin::Message Out-->
 
 
@@ -76,20 +78,20 @@
             <!--end::Body-->
             <!--begin::Footer-->
             @if(!$ticket->is_closed())
-            <div class="card-footer align-items-center">
-                <!--begin::Compose-->
-                <textarea class="form-control border-0 p-0" rows="2" placeholder="Type a message"></textarea>
-                <div class="d-flex align-items-center justify-content-between mt-5">
+                <div class="card-footer align-items-center">
+                    <!--begin::Compose-->
+                    <textarea class="form-control border-0 p-0" rows="2" placeholder="Type a message"></textarea>
+                    <div class="d-flex align-items-center justify-content-between mt-5">
 
-                    <div>
-                        <button type="button"
-                                class="btn btn-primary btn-md text-uppercase font-weight-bold chat-send py-2 px-6"
-                                id="send-message">Send
-                        </button>
+                        <div>
+                            <button type="button"
+                                    class="btn btn-primary btn-md text-uppercase font-weight-bold chat-send py-2 px-6"
+                                    id="send-message">Send
+                            </button>
+                        </div>
                     </div>
+                    <!--begin::Compose-->
                 </div>
-                <!--begin::Compose-->
-            </div>
             @endif
             <!--end::Footer-->
         </div>
@@ -102,7 +104,7 @@
 
     window.Echo.channel('ticket.' + '{{$ticket->id}}')
         .listen('SendTicketMessage', (e) => {
-
+            console.log(e)
             var messagesEl = KTUtil.find('kt_chat_modal', '.messages');
             var scrollEl = KTUtil.find('kt_chat_modal', '.scroll');
             var textarea = KTUtil.find('kt_chat_modal', 'textarea');
@@ -117,7 +119,7 @@
             html += '		<img alt="Pic" src="assets/media/users/300_12.jpg"/>';
             html += '	</div>';
             html += '	<div>';
-            html += '		<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">'+e.user.name+'</a>';
+            html += '		<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">' + e.user.name + '</a>';
             html += '		<span class="text-muted font-size-sm">now</span>';
             html += '	</div>';
 
@@ -163,7 +165,7 @@
                     return parseInt(KTUtil.attr(scrollEl, 'data-height'));
                 } else {
                     height = KTLayoutContent.getHeight();
-                      console.log(height)
+                    console.log(height)
                     if (scrollEl) {
                         height = height - parseInt(KTUtil.css(scrollEl, 'margin-top')) - parseInt(KTUtil.css(scrollEl, 'margin-bottom'));
                     }
@@ -193,11 +195,11 @@
 
     }
 
-  $(function () {
-      asd('kt_chat_modal');
-      var scrollEl = KTUtil.find('kt_chat_modal', '.scroll');
-      scrollEl.scrollTop =20000;
-  });
+    $(function () {
+        asd('kt_chat_modal');
+        var scrollEl = KTUtil.find('kt_chat_modal', '.scroll');
+        scrollEl.scrollTop = 20000;
+    });
 
     $('#send-message').on('click', function () {
         var messagesEl = KTUtil.find('kt_chat_modal', '.messages');
