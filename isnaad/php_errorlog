@@ -1,0 +1,129 @@
+[16-Nov-2020 15:30:26 Asia/Riyadh] PHP Fatal error:  Cannot declare class App\Console\Commands\aramex, because the name is already in use in /home/customer/www/portal.isnaad.sa/isnaad/app/Console/Commands/aramex_cron.php on line 70
+[13-Dec-2020 09:41:15 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR), expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home/customer/www/portal.isnaad.sa/isnaad/app/Console/Kernel.php on line 45
+[13-Dec-2020 09:41:58 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR), expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home/customer/www/portal.isnaad.sa/isnaad/app/Console/Kernel.php on line 45
+[16-Dec-2020 10:13:20 UTC] PHP Parse error:  syntax error, unexpected '\' (T_NS_SEPARATOR), expecting ']' in /home/customer/www/portal.isnaad.sa/isnaad/app/Console/Kernel.php on line 35
+[17-Dec-2020 19:45:35 UTC] PHP Fatal error:  Out of memory (allocated 1734881280) (tried to allocate 4096 bytes) in phar:///usr/local/bin/composer.phar/src/Composer/DependencyResolver/RuleWatchGraph.php on line 52
+[17-Dec-2020 19:48:35 UTC] PHP Fatal error:  Out of memory (allocated 1734881280) (tried to allocate 4096 bytes) in phar:///usr/local/bin/composer.phar/src/Composer/DependencyResolver/RuleWatchGraph.php on line 52
+[17-Dec-2020 19:53:39 UTC] PHP Fatal error:  Out of memory (allocated 1734881280) (tried to allocate 4096 bytes) in phar:///usr/local/bin/composer.phar/src/Composer/DependencyResolver/RuleWatchGraph.php on line 52
+[17-Dec-2020 19:55:55 UTC] PHP Fatal error:  Out of memory (allocated 1734881280) (tried to allocate 4096 bytes) in phar:///usr/local/bin/composer.phar/src/Composer/DependencyResolver/RuleWatchGraph.php on line 52
+[17-Dec-2020 19:58:06 UTC] PHP Fatal error:  Out of memory (allocated 1734881280) (tried to allocate 4096 bytes) in phar:///usr/local/bin/composer.phar/src/Composer/DependencyResolver/RuleWatchGraph.php on line 52
+[17-Dec-2020 20:16:50 UTC] PHP Fatal error:  Out of memory (allocated 1734881280) (tried to allocate 4096 bytes) in phar:///usr/local/bin/composer.phar/src/Composer/DependencyResolver/RuleWatchGraph.php on line 52
+[17-Dec-2020 20:26:19 UTC] PHP Fatal error:  Out of memory (allocated 1734881280) (tried to allocate 4096 bytes) in phar:///usr/local/bin/composer.phar/src/Composer/DependencyResolver/Solver.php on line 223
+[22-Mar-2021 15:00:04 Asia/Riyadh] PHP Fatal error:  Cannot use empty array elements in arrays in /home/customer/www/portal.isnaad.sa/isnaad/app/Console/Commands/Tamex_cron.php on line 49
+[25-Mar-2021 20:10:01 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[25-Mar-2021 20:20:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[25-Mar-2021 20:30:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[25-Mar-2021 20:40:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[25-Mar-2021 20:50:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[25-Mar-2021 21:00:03 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[25-Mar-2021 21:10:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[25-Mar-2021 21:20:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[25-Mar-2021 21:30:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[25-Mar-2021 21:40:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[25-Mar-2021 21:50:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[25-Mar-2021 22:00:03 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[25-Mar-2021 22:10:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[25-Mar-2021 22:20:04 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[25-Mar-2021 22:30:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[25-Mar-2021 22:40:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[25-Mar-2021 22:50:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[25-Mar-2021 23:00:03 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[25-Mar-2021 23:10:01 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[25-Mar-2021 23:20:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[25-Mar-2021 23:30:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[25-Mar-2021 23:40:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[25-Mar-2021 23:50:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 00:00:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 00:10:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 00:20:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 00:30:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 00:40:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 00:50:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 01:00:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 01:10:01 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 01:20:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 01:30:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 01:40:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 01:50:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 02:00:01 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 02:10:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 02:20:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 02:30:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 02:40:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 02:50:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 03:00:01 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 03:10:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 03:20:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 03:30:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 03:40:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 03:50:01 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 04:00:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 04:10:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 04:20:01 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 04:30:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 04:40:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 04:50:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 05:00:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 05:10:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 05:20:01 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 05:30:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 05:40:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 05:50:01 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 06:00:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 06:10:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 06:20:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 06:30:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 06:40:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 06:50:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 07:00:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 07:10:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 07:20:01 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 07:30:03 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 07:40:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 07:50:01 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 08:00:03 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 08:10:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 08:20:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 08:30:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 08:40:01 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 08:50:01 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 09:00:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 09:10:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 09:20:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 09:30:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 09:40:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 09:50:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 10:00:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 10:10:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 10:20:01 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 10:30:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 10:40:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 10:50:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 11:00:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 11:10:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 11:20:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 11:30:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 11:40:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 11:50:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 12:00:03 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 12:10:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 12:20:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 12:30:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 12:40:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 12:50:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 13:00:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 13:10:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 13:20:01 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 13:30:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 13:40:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 13:50:01 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 14:00:03 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 14:10:01 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 14:20:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 14:30:03 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 625
+[26-Mar-2021 14:40:02 Asia/Riyadh] PHP Fatal error:  Cannot redeclare App\Classes\AramexAPI::checkDate() in /home/customer/www/portal.isnaad.sa/isnaad/app/Classes/AramexAPI.php on line 624
+[09-Oct-2021 09:34:03 UTC] PHP Parse error:  syntax error, unexpected '\' (T_NS_SEPARATOR), expecting ']' in /home/customer/www/portal.isnaad.sa/isnaad/app/Console/Kernel.php on line 47
+[09-Oct-2021 09:34:03 UTC] PHP Parse error:  syntax error, unexpected '\' (T_NS_SEPARATOR), expecting ']' in /home/customer/www/portal.isnaad.sa/isnaad/app/Console/Kernel.php on line 47
+[09-Oct-2021 09:34:03 UTC] PHP Parse error:  syntax error, unexpected '\' (T_NS_SEPARATOR), expecting ']' in /home/customer/www/portal.isnaad.sa/isnaad/app/Console/Kernel.php on line 47
+[12-Oct-2021 13:06:23 UTC] PHP Parse error:  syntax error, unexpected '\' (T_NS_SEPARATOR), expecting ']' in /home/customer/www/portal.isnaad.sa/isnaad/app/Console/Kernel.php on line 47
+[12-Oct-2021 13:06:58 UTC] PHP Parse error:  syntax error, unexpected '\' (T_NS_SEPARATOR), expecting ']' in /home/customer/www/portal.isnaad.sa/isnaad/app/Console/Kernel.php on line 47
