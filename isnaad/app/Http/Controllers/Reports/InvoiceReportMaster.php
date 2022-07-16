@@ -25,7 +25,9 @@ use App\store;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Response;
 use Maatwebsite\Excel\Facades\Excel;
+use Maatwebsite\Excel\Files\Disk;
 use Yajra\DataTables\DataTables;
 use App\interrupted_orders;
 use App\Exports\OrderExportInoiceReport;
@@ -807,8 +809,9 @@ class InvoiceReportMaster extends Controller
         if($Confermed||$updateConfermed){
             $Confermed=true;
         }
-        Excel::store(new HandlingPick($data,$Confermed), $Excel, 'uploads');
-        return redirect()->back()->with(['successExport'=> 'invoice report exported successfully','from_date'=>$request->from,'to_date'=>$request->to]);
+         Excel::store(new HandlingPick($data,$Confermed), $Excel, 'uploads');
+          return Response::download(laravelStorage::disk('uploads')->path($Excel));
+        //return redirect()->back()->with(['successExport'=> 'invoice report exported successfully','from_date'=>$request->from,'to_date'=>$request->to]);
     }
 
     public function hasPlan($orders, $request, $mini_plan, $hasManyPlan, $numberOfStoreOrders)

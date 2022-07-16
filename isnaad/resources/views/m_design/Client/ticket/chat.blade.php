@@ -35,11 +35,16 @@
                                                class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">You</a>
                                         </div>
                                         <div class="symbol symbol-circle symbol-40 ml-3">
-                                            <img alt="Pic" src="assets/media/users/300_21.jpg"/>
+                                            <img alt="Pic" src="{{url('uploads/isnaadlogo.png')}}"/>
                                         </div>
                                     </div>
+
                                     <div
                                         class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">
+                                        @if($replay->attachment)
+                                            <a href="{{url('/comment_attachemnt/'.$replay->attachment->path)}}" target="_blank" class="mr-3"> <i class="fa fa-file-image"></i></a>
+                                        @endif
+
                                         {{$replay->comment}}
                                     </div>
                                 </div>
@@ -48,7 +53,7 @@
                                 <div class="d-flex flex-column mb-5 align-items-start">
                                     <div class="d-flex align-items-center">
                                         <div class="symbol symbol-circle symbol-40 mr-3">
-                                            <img alt="Pic" src="assets/media/users/300_12.jpg"/>
+                                            <img alt="Pic" src="{{url('uploads/store_placeholder.png')}}"/>
                                         </div>
                                         <div>
                                             <a href="#"
@@ -60,6 +65,9 @@
                                     </div>
                                     <div
                                         class="mt-2 rounded p-5 bg-light-success text-dark-50 font-weight-bold font-size-lg text-left max-w-400px">
+                                        @if($replay->attachment)
+                                            <a href="{{url('/comment_attachemnt/'.$replay->attachment->path)}}" target="_blank" class="mr-3"> <i class="fa fa-file-image"></i></a>
+                                        @endif
                                         {{$replay->comment}}
                                     </div>
                                 </div>
@@ -80,16 +88,26 @@
             @if(!$ticket->is_closed())
                 <div class="card-footer align-items-center">
                     <!--begin::Compose-->
-                    <textarea class="form-control border-0 p-0" rows="2" placeholder="Type a message"></textarea>
-                    <div class="d-flex align-items-center justify-content-between mt-5">
+                    <form id="send_message_form" enctype="multipart/form-data">
+                        <textarea class="form-control border-0 p-0" rows="2" placeholder="Type a message"></textarea>
+                        <div class="d-flex align-items-center justify-content-between mt-5">
 
-                        <div>
-                            <button type="button"
-                                    class="btn btn-primary btn-md text-uppercase font-weight-bold chat-send py-2 px-6"
-                                    id="send-message">Send
-                            </button>
+                            <div class="mr-3">
+                                <a href="javascript:;" onclick="selectFile()"
+                                   class="btn btn-clean btn-icon btn-md mr-1">
+                                    <i class="flaticon2-photograph icon-lg"></i>
+                                </a>
+
+                            </div>
+                            <div>
+                                <button type="button"
+                                        class="btn btn-primary btn-md text-uppercase font-weight-bold chat-send py-2 px-6"
+                                        id="send-message">Send
+                                </button>
+                            </div>
+
                         </div>
-                    </div>
+                    </form>
                     <!--begin::Compose-->
                 </div>
             @endif
@@ -101,10 +119,10 @@
 
 <script>
     ///client
-
+    var file = null;
     window.Echo.channel('ticket.' + '{{$ticket->id}}')
         .listen('SendTicketMessage', (e) => {
-            console.log(e,'test')
+            console.log(e)
             var messagesEl = KTUtil.find('kt_chat_modal', '.messages');
             var scrollEl = KTUtil.find('kt_chat_modal', '.scroll');
             var textarea = KTUtil.find('kt_chat_modal', 'textarea');
@@ -112,11 +130,16 @@
 
             var node = document.createElement("DIV");
             KTUtil.addClass(node, 'd-flex flex-column mb-5 align-items-start');
-
+            if(e.file_name){
+                let url ='{{url('/comment_attachemnt/')}}'+'/'+e.file_name
+                var message= ' <a href="'+url+'" target="_blank" class="mr-3"> <i class="fa fa-file-image"></i></a>' + e.message
+            }else{
+                var message=e.message;
+            }
             var html = '';
             html += '<div class="d-flex align-items-center">';
             html += '	<div class="symbol symbol-circle symbol-40 mr-3">';
-            html += '		<img alt="Pic" src="assets/media/users/300_12.jpg"/>';
+            html += '		<img alt="Pic" src="{{url('uploads/store_placeholder.png')}}"/>';
             html += '	</div>';
             html += '	<div>';
             html += '		<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">' + e.user.name + '</a>';
@@ -124,7 +147,7 @@
             html += '	</div>';
 
             html += '</div>';
-            html += '<div class="mt-2 rounded p-5 bg-light-success text-dark-50 font-weight-bold font-size-lg text-left max-w-400px">' + e.message + '</div>';
+            html += '<div class="mt-2 rounded p-5 bg-light-success text-dark-50 font-weight-bold font-size-lg text-left max-w-400px">' + message + '</div>';
 
             KTUtil.setHTML(node, html);
 
@@ -207,42 +230,74 @@
         var textarea = KTUtil.find('kt_chat_modal', 'textarea');
 
 
-        var node = document.createElement("DIV");
-        KTUtil.addClass(node, 'd-flex flex-column mb-5 align-items-end');
 
-        var html = '';
-        html += '<div class="d-flex align-items-center">';
-        html += '	<div>';
-        html += '		<span class="text-muted font-size-sm">now</span>';
-        html += '		<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">You</a>';
-        html += '	</div>';
-        html += '	<div class="symbol symbol-circle symbol-40 ml-3">';
-        html += '		<img alt="Pic" src="assets/media/users/300_12.jpg"/>';
-        html += '	</div>';
-        html += '</div>';
-        html += '<div class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">' + textarea.value + '</div>';
+        var formData = new FormData()
 
-        KTUtil.setHTML(node, html);
+        formData.append('_token', '{{csrf_token()}}')
 
-        KTUtil.setHTML(node, html);
-        messagesEl.appendChild(node);
+        if (file) {
+            formData.append('file', file)
+            formData.append('has_file', true)
+        }
+
+        formData.append('ticket_id', '{{$ticket->id}}')
+        formData.append('message', textarea.value)
 
         $.ajax({
             url: '{{route('send_ticket_message_client')}}',
-            data: {
-                ticket_id: '{{$ticket->id}}',
-                message: textarea.value,
-                _token: '{{csrf_token()}}'
-            },
+            data: formData,
             type: "POST",
+            contentType: false,
+            processData: false,
             success: function (data) {
+                if(data.file_url){
+                   let url ='{{url('/comment_attachemnt/')}}'+'/'+data.file_url
+                  var message= ' <a href="'+url+'" target="_blank" class="mr-3"> <i class="fa fa-file-image"></i></a>' + textarea.value
+                }else{
+                    message=textarea.value;
+                }
+                var node = document.createElement("DIV");
+                KTUtil.addClass(node, 'd-flex flex-column mb-5 align-items-end');
+
+                var html = '';
+                html += '<div class="d-flex align-items-center">';
+                html += '	<div>';
+                html += '		<span class="text-muted font-size-sm">now</span>';
+                html += '		<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">You</a>';
+                html += '	</div>';
+                html += '	<div class="symbol symbol-circle symbol-40 ml-3">';
+                html += '		<img alt="Pic" src="{{url('uploads/store_placeholder.png')}}"/>';
+                html += '	</div>';
+                html += '</div>';
+                html += '<div class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">'+ message+ '</div>';
+                console.log(html)
+
+                KTUtil.setHTML(node, html);
+
+                KTUtil.setHTML(node, html);
+                messagesEl.appendChild(node);
+
                 textarea.value = '';
                 scrollEl.scrollTop = parseInt(KTUtil.css(messagesEl, 'height'));
+                file = null;
             },
             error: function (data, textStatus, jqXHR) {
                 console.log(data);
             },
         });
     });
+
+    function selectFile() {
+        let fileInput = document.createElement('input');
+        fileInput.setAttribute('type', 'file');
+        fileInput.addEventListener('change', function () {
+            //send file
+            file = fileInput.files[0];
+
+        });
+        fileInput.click();
+
+    }
+
 
 </script>

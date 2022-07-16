@@ -34,3 +34,4 @@ window.Echo = new Echo({
 
 });
 console.log(window.Echo)
+console.log('testest')

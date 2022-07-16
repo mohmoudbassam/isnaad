@@ -50,6 +50,9 @@ return [
         'uploads' => [
             'driver' => 'local',
             'root' => public_path('uploads'),
+        ], 'comment_attachments' => [
+            'driver' => 'local',
+            'root' => public_path('comment_attachemnt'),
         ],
         'statment' => [
             'driver' => 'local',

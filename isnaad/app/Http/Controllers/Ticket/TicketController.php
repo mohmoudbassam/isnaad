@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Ticket;
 use App\Events\SendTicketMessage;
 use App\Http\Controllers\Controller;
 use App\Models\Comment;
+use App\Models\CommentAttachments;
 use App\Models\CommentReply;
 use App\Models\Ticket;
 use App\Models\TicketAssignedTo;
@@ -13,6 +14,7 @@ use App\Models\TicketFiles;
 use App\Models\TicketStatus;
 use App\user;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 use Yajra\DataTables\DataTables;
 
 
@@ -117,6 +119,7 @@ class TicketController extends Controller
     public function send_ticket_message(Request $request)
     {
 
+
         $ticket = Ticket::query()->find($request->ticket_id);
 
 
@@ -130,13 +133,34 @@ class TicketController extends Controller
             'created_by' => auth()->user()->id
         ]);
 
-        CommentReply::query()->create([
+        $comment_reply= CommentReply::query()->create([
             'comment_id' => $comment->id,
             'send_by' => auth()->user()->id,
             'reply_by' => auth()->user()->id,
             'comment' => $request->message
         ]);
-        event((new SendTicketMessage($ticket, $message, auth()->user()))->dontBroadcastToCurrentUser());
+        if ($request->has('has_file')) {
+
+            $filenameWithExt = $request->file('file')->getClientOriginalName();
+
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+
+            $extension = $request->file('file')->getClientOriginalExtension();
+
+            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
+            $request->file('file')->storeAs('', $fileNameToStore, ['disk' => 'comment_attachments']);
+            CommentAttachments::create([
+                'path' => $fileNameToStore,
+                'name' => $filename,
+                'comment_reply_id' => $comment_reply->id
+            ]);
+        }
+
+        event((new SendTicketMessage($ticket, $message, auth()->user(),$fileNameToStore ?? false))->dontBroadcastToCurrentUser());
+        return response()->json([
+            'success' => true,
+            'file_url' => $fileNameToStore ?? false
+        ]);
     }
 
     public function assign_form($ticket_id)
@@ -188,6 +212,11 @@ class TicketController extends Controller
             'success' => true,
             'message' => 'ticket closed successfully'
         ]);
+    }
+
+    public function download($id){
+      $attachment=  CommentAttachments::find($id);
+      return Response::download('comment_attachemnt/'.$attachment->path);
     }
 
 }

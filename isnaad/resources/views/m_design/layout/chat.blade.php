@@ -3,13 +3,15 @@
         <!--begin::Card-->
         <div class="card card-custom">
             <!--begin::Header-->
-            <div class="card-header align-items-center px-4 py-3" @if($ticket->is_closed()) style="background-color: #ff00002b" @endif>
+            <div class="card-header align-items-center px-4 py-3"
+                 @if($ticket->is_closed()) style="background-color: #ff00002b" @endif>
                 <div class="text-left flex-grow-1">
                     <!--begin::Dropdown Menu-->
                     @if(!$ticket->is_closed())
-                    <div class="dropdown dropdown-inline">
-                        <button type="button" class="btn btn-clean btn-sm btn-icon btn-icon-md" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
+                        <div class="dropdown dropdown-inline">
+                            <button type="button" class="btn btn-clean btn-sm btn-icon btn-icon-md"
+                                    data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
 										<span class="svg-icon svg-icon-lg">
 											<!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Add-user.svg-->
 											<svg xmlns="http://www.w3.org/2000/svg"
@@ -27,29 +29,32 @@
 											</svg>
                                             <!--end::Svg Icon-->
 										</span>
-                        </button>
+                            </button>
 
-                        <div class="dropdown-menu p-0 m-0 dropdown-menu-right dropdown-menu-md">
-                            <!--begin::Navigation-->
-                            <ul class="navi navi-hover py-5">
-                                <li class="navi-item">
-                                    <a onclick="closeTicket('{{$ticket->id}}')" href="javascript:;" class="navi-link">
+                            <div class="dropdown-menu p-0 m-0 dropdown-menu-right dropdown-menu-md">
+                                <!--begin::Navigation-->
+                                <ul class="navi navi-hover py-5">
+                                    <li class="navi-item">
+                                        <a onclick="closeTicket('{{$ticket->id}}')" href="javascript:;"
+                                           class="navi-link">
 													<span class="navi-icon">
 														<i class="flaticon2-drop"></i>
 													</span>
-                                        <span class="navi-text">close ticket</span>
-                                    </a>
-                                </li>
-                            </ul>
-                            <!--end::Navigation-->
-                        </div>
+                                            <span class="navi-text">close ticket</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!--end::Navigation-->
+                            </div>
 
-                    </div>
+                        </div>
                     @endif
                     <!--end::Dropdown Menu-->
                 </div>
                 <div class="text-center flex-grow-1">
-                    <div class="text-dark-75  font-weight-bold font-size-h5">@if($ticket->is_closed())closed ticket  @endif{{$ticket->store->name}}</div>
+                    <div class="text-dark-75  font-weight-bold font-size-h5">@if($ticket->is_closed())
+                            closed ticket
+                        @endif{{$ticket->store->name}}</div>
 
                 </div>
                 <div class="text-right flex-grow-1">
@@ -83,6 +88,10 @@
                                     </div>
                                     <div
                                         class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">
+                                        @if($replay->attachment)
+                                            <a href="{{url('/comment_attachemnt/'.$replay->attachment->path)}}"
+                                               target="_blank" class="mr-3"> <i class="fa fa-file-image"></i></a>
+                                        @endif
                                         {{$replay->comment}}
                                     </div>
                                 </div>
@@ -102,6 +111,10 @@
                                     </div>
                                     <div
                                         class="mt-2 rounded p-5 bg-light-success text-dark-50 font-weight-bold font-size-lg text-left max-w-400px">
+                                        @if($replay->attachment)
+                                            <a href="{{url('/comment_attachemnt/'.$replay->attachment->path)}}"
+                                               target="_blank" class="mr-3"> <i class="fa fa-file-image"></i></a>
+                                        @endif
                                         {{$replay->comment}}
                                     </div>
                                 </div>
@@ -120,6 +133,10 @@
                                     </div>
                                     <div
                                         class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">
+                                        @if($replay->attachment)
+                                            <a href="{{url('/comment_attachemnt/'.$replay->attachment->path)}}"
+                                               target="_blank" class="mr-3"> <i class="fa fa-file-image"></i></a>
+                                        @endif
                                         {{$replay->comment}}
                                     </div>
                                 </div>
@@ -140,17 +157,23 @@
 
             <div class="card-footer align-items-center">
                 @if(!$ticket->is_closed())
-                <!--begin::Compose-->
-                <textarea class="form-control border-0 p-0" rows="2" placeholder="Type a message"></textarea>
-                <div class="d-flex align-items-center justify-content-between mt-5">
+                    <!--begin::Compose-->
+                    <textarea class="form-control border-0 p-0" rows="2" placeholder="Type a message"></textarea>
+                    <div class="d-flex align-items-center justify-content-between mt-5">
 
-                    <div>
-                        <button type="button"
-                                class="btn btn-primary btn-md text-uppercase font-weight-bold chat-send py-2 px-6"
-                                id="send-message">Send
-                        </button>
+                        <div>
+                            <div class="mr-3">
+                                <a href="javascript:;" onclick="selectFile()"
+                                   class="btn btn-clean btn-icon btn-md mr-1">
+                                    <i class="flaticon2-photograph icon-lg"></i>
+                                </a>
+                            </div>
+                            <button type="button"
+                                    class="btn btn-primary btn-md text-uppercase font-weight-bold chat-send py-2 px-6"
+                                    id="send-message">Send
+                            </button>
+                        </div>
                     </div>
-                </div>
                 @endif
                 <!--begin::Compose-->
             </div>
@@ -205,11 +228,11 @@
     {{--});--}}
 </script>
 <script>
-
+    var file = '';
 
     window.Echo.channel('ticket.' + '{{$ticket->id}}')
         .listen('SendTicketMessage', (e) => {
-
+            console.log(e)
             var messagesEl = KTUtil.find('kt_chat_modal', '.messages');
             var scrollEl = KTUtil.find('kt_chat_modal', '.scroll');
             var textarea = KTUtil.find('kt_chat_modal', 'textarea');
@@ -218,20 +241,25 @@
             var node = document.createElement("DIV");
             // KTUtil.addClass(node, 'd-flex flex-column mb-5 align-items-end');
             var html = '';
-            //   console.log(e.user.type=='a',e.user)
+            if (e.file_name) {
+                let url = '{{url('/comment_attachemnt/')}}' + '/' + e.file_name
+                var message = ' <a href="' + url + '" target="_blank" class="mr-3"> <i class="fa fa-file-image"></i></a>' + e.message
+            } else {
+                var message = e.message;
+            }
             if (e.user.type == 'a') {
-                console.log('teststst')
+
                 html += ' <div class="d-flex flex-column mb-5 align-items-start">';
                 html += '	 <div class="d-flex align-items-center">';
                 html += '		<div class="symbol symbol-circle symbol-40 mr-3">';
-                html += '  <img alt="Pic" src="uploads/store_placeholder.png"/>';
+                html += '  <img alt="Pic" src="{{url('uploads/store_placeholder.png')}}"/>';
                 html += '	</div>';
                 html += '	<div>';
                 html += '	 <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">' + e.user.name + '</a>';
                 html += '<span class="text-muted font-size-sm">now</span>';
                 html += '</div>';
                 html += '</div>';
-                html += '<div class="mt-2 rounded p-5 bg-light-success text-dark-50 font-weight-bold font-size-lg text-left max-w-400px">' + e.message + '</div>';
+                html += '<div class="mt-2 rounded p-5 bg-light-success text-dark-50 font-weight-bold font-size-lg text-left max-w-400px">' + message + '</div>';
 
             } else {
 
@@ -242,10 +270,10 @@
                 html += '	<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">' + e.user.name + '</a>';
                 html += '	</div>';
                 html += '<div class="symbol symbol-circle symbol-40 ml-3">';
-                html += ' <img alt="Pic" src="assets/media/users/300_21.jpg"/>';
+                html += ' <img alt="Pic" src="{{url('uploads/isnaadlogo.png')}}"/>';
                 html += '</div>';
                 html += '</div>';
-                html += '<div class="mt-2 rounded p-5 bg-light-success text-dark-50 font-weight-bold font-size-lg text-left max-w-400px">' + e.message + '</div>';
+                html += '<div class="mt-2 rounded p-5 bg-light-success text-dark-50 font-weight-bold font-size-lg text-left max-w-400px">' + message + '</div>';
             }
 
             KTUtil.setHTML(node, html);
@@ -326,38 +354,56 @@
         var textarea = KTUtil.find('kt_chat_modal', 'textarea');
 
 
-        var node = document.createElement("DIV");
-        KTUtil.addClass(node, 'd-flex flex-column mb-5 align-items-end');
-        var html = '';
+        var formData = new FormData()
 
-        html += '<div class="d-flex align-items-center">';
-        html += '	<div>';
-        html += '		<span class="text-muted font-size-sm">now</span>';
-        html += '		<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">You</a>';
-        html += '	</div>';
-        html += '	<div class="symbol symbol-circle symbol-40 ml-3">';
-        html += '		<img alt="Pic" src="assets/media/users/300_12.jpg"/>';
-        html += '	</div>';
-        html += '</div>';
-        html += '<div class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">' + textarea.value + '</div>';
+        formData.append('_token', '{{csrf_token()}}')
 
-        KTUtil.setHTML(node, html);
+        if (file) {
+            formData.append('file', file)
+            formData.append('has_file', true)
+        }
 
-        KTUtil.setHTML(node, html);
-        messagesEl.appendChild(node);
+        formData.append('ticket_id', '{{$ticket->id}}')
+        formData.append('message', textarea.value)
+
 
         $.ajax({
             url: '{{route('admin_ticket.send_ticket_message')}}',
-            data: {
-                ticket_id: '{{$ticket->id}}',
-                message: textarea.value,
-                _token: '{{csrf_token()}}'
-            },
+            data: formData,
+            contentType: false,
+            processData: false,
             type: "POST",
 
             success: function (data) {
+                if (data.file_url) {
+                    let url = '{{url('/comment_attachemnt/')}}' + '/' + data.file_url
+                    var message = ' <a href="' + url + '" target="_blank" class="mr-3"> <i class="fa fa-file-image"></i></a>' + textarea.value
+                } else {
+                    message = textarea.value;
+                }
+                var node = document.createElement("DIV");
+                KTUtil.addClass(node, 'd-flex flex-column mb-5 align-items-end');
+                var html = '';
+
+                html += '<div class="d-flex align-items-center">';
+                html += '	<div>';
+                html += '		<span class="text-muted font-size-sm">now</span>';
+                html += '		<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">You</a>';
+                html += '	</div>';
+                html += '	<div class="symbol symbol-circle symbol-40 ml-3">';
+                html += '		<img alt="Pic" src="{{url('uploads/isnaadlogo.png')}}"/>';
+                html += '	</div>';
+                html += '</div>';
+                html += '<div class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">' + message + '</div>';
+
+                KTUtil.setHTML(node, html);
+
+                KTUtil.setHTML(node, html);
+                messagesEl.appendChild(node);
+
                 textarea.value = '';
                 scrollEl.scrollTop = parseInt(KTUtil.css(messagesEl, 'height'));
+                file = null;
             },
             error: function (data, textStatus, jqXHR) {
                 console.log(data);
@@ -397,7 +443,7 @@
                     success: function (data) {
                         if (data.success == true) {
                             $('#page_modal').modal('hide');
-                             $('#kt_datatable').DataTable().ajax.reload(null, false);
+                            $('#kt_datatable').DataTable().ajax.reload(null, false);
                             showAlertMessage('success', data.message);
                         } else {
                             if (data.message) {
@@ -415,6 +461,18 @@
                 });
             }
         });
+    }
+
+    function selectFile() {
+        let fileInput = document.createElement('input');
+        fileInput.setAttribute('type', 'file');
+        fileInput.addEventListener('change', function () {
+            //send file
+            file = fileInput.files[0];
+
+        });
+        fileInput.click();
+
     }
 
 

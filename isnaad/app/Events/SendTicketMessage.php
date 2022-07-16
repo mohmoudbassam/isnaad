@@ -18,17 +18,19 @@ class SendTicketMessage implements shouldBroadcast
     public  $ticket;
     public  $message;
     public  $user;
+    public  $file_name;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($ticket,$message,$user)
+    public function __construct($ticket,$message,$user,$file_name=null)
     {
 
         $this->ticket=$ticket;
         $this->message=$message;
         $this->user=$user;
+        $this->file_name=$file_name;
         $this->dontBroadcastToCurrentUser();
 
     }

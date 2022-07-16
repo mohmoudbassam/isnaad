@@ -194,7 +194,7 @@ class IsnaadReport extends Controller
 
             return $this->checkStorePlans($store, $request->from, $request->to);
         });
-         $total_cod_query=clone  $orders;
+        $total_cod_query = clone $orders;
         if ($flag) {
             return $orders;
 

@@ -18,4 +18,8 @@ class CommentReply extends Model
         return $this->belongsTo(user::class,'send_by');
     }
 
+    public function attachment(){
+        return $this->hasOne(CommentAttachments::class,'comment_reply_id','id');
+    }
+
 }

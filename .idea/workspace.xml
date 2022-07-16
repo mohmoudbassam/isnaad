@@ -5,7 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="338e3434-6bc6-498f-9400-3cd1f5dc3510" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/isnaad/app/Models/CommentAttachments.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/isnaad/app/Events/SendTicketMessage.php" beforeDir="false" afterPath="$PROJECT_DIR$/isnaad/app/Events/SendTicketMessage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/isnaad/app/Http/Controllers/Client/ClientTikect.php" beforeDir="false" afterPath="$PROJECT_DIR$/isnaad/app/Http/Controllers/Client/ClientTikect.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/isnaad/app/Http/Controllers/Reports/InvoiceReportMaster.php" beforeDir="false" afterPath="$PROJECT_DIR$/isnaad/app/Http/Controllers/Reports/InvoiceReportMaster.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/isnaad/app/Http/Controllers/Reports/IsnaadReport.php" beforeDir="false" afterPath="$PROJECT_DIR$/isnaad/app/Http/Controllers/Reports/IsnaadReport.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/isnaad/app/Http/Controllers/Ticket/TicketController.php" beforeDir="false" afterPath="$PROJECT_DIR$/isnaad/app/Http/Controllers/Ticket/TicketController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/isnaad/app/Models/CommentReply.php" beforeDir="false" afterPath="$PROJECT_DIR$/isnaad/app/Models/CommentReply.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/isnaad/config/filesystems.php" beforeDir="false" afterPath="$PROJECT_DIR$/isnaad/config/filesystems.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/isnaad/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/isnaad/resources/js/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/isnaad/resources/views/m_design/Client/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/isnaad/resources/views/m_design/Client/layouts/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/isnaad/resources/views/m_design/Client/ticket/chat.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/isnaad/resources/views/m_design/Client/ticket/chat.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/isnaad/resources/views/m_design/layout/chat.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/isnaad/resources/views/m_design/layout/chat.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/isnaad/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/isnaad/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/isnaad/storage/framework/cache/data/85/5f/855f92484c8c414d36c1b25cb24876e30229cbbf" beforeDir="false" afterPath="$PROJECT_DIR$/isnaad/storage/framework/cache/data/85/5f/855f92484c8c414d36c1b25cb24876e30229cbbf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public_html/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public_html/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/mpdf/_tempSVG2540962c5570627b013.90771987_0.svg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +212,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/wamp64/www/Copy/isnaad/resources/views/m_design/Ticket&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/wamp64/www/Copy/isnaad/app/Models&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;php.override.implement.member.chooser.php.doc&quot;: &quot;NONE&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
@@ -205,8 +221,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\Copy\isnaad\resources\views\m_design\Ticket" />
       <recent name="C:\wamp64\www\Copy\isnaad\app\Models" />
+      <recent name="C:\wamp64\www\Copy\isnaad\resources\views\m_design\Ticket" />
       <recent name="C:\wamp64\www\Copy\isnaad\app\Exports" />
       <recent name="C:\wamp64\www\Copy\isnaad\storage" />
       <recent name="C:\wamp64\www\Copy" />
@@ -440,6 +456,11 @@
       <workItem from="1657707197891" duration="71000" />
       <workItem from="1657707505471" duration="736000" />
       <workItem from="1657730340746" duration="5156000" />
+      <workItem from="1657740890194" duration="2000000" />
+      <workItem from="1657786250336" duration="9000" />
+      <workItem from="1657787340814" duration="1487000" />
+      <workItem from="1657885236618" duration="8605000" />
+      <workItem from="1657959564892" duration="2984000" />
     </task>
     <servers />
   </component>
@@ -448,6 +469,17 @@
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.log" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -543,12 +575,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/isnaad/resources/views/m_design/layout/chat.blade.php</url>
-          <line>239</line>
+          <line>259</line>
           <option name="timeStamp" value="59" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/isnaad/resources/views/m_design/layout/chat.blade.php</url>
-          <line>90</line>
+          <line>93</line>
           <option name="timeStamp" value="61" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -585,7 +617,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php-line-method">
           <url>file://$PROJECT_DIR$/isnaad/app/Http/Controllers/Reports/InvoiceReportMaster.php</url>
-          <line>1331</line>
+          <line>1334</line>
           <properties>
             <option name="className" value="\App\Http\Controllers\Reports\InvoiceReportMaster" />
             <option name="methodName" value="exportReplanchment" />

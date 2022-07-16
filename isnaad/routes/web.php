@@ -741,6 +741,7 @@ Route::post('/pusher/auth/',function(Request $request){
 Route::post('change-admin-pass',function(Request $request){
 dd('sdfsdsdfsd');
 });
+Route::get('download_attachment/{id}','TicketController@download')->name('download_attachment');
 
 
 

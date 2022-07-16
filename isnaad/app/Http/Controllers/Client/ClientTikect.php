@@ -6,6 +6,7 @@ use App\Events\SendTicketMessage;
 use App\Helpers\helper;
 use App\Http\Controllers\Controller;
 use App\Models\Comment;
+use App\Models\CommentAttachments;
 use App\Models\CommentReply;
 use App\Models\Ticket;
 use App\Models\TicketsFiles;
@@ -13,7 +14,9 @@ use App\Models\TicketStatus;
 use App\order;
 use App\user;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+
 use Yajra\DataTables\DataTables;
 
 class ClientTikect extends Controller
@@ -130,19 +133,42 @@ class ClientTikect extends Controller
     public function send_ticket_message_client(Request $request)
     {
 
+
         $ticket = Ticket::query()->find($request->ticket_id);
         $message = $request->message;
         $comment = Comment::query()->create([
             'ticket_id' => $ticket->id,
             'created_by' => auth()->user()->id
         ]);
-        CommentReply::query()->create([
+
+
+        $comment_reply = CommentReply::query()->create([
             'comment_id' => $comment->id,
             'send_by' => auth()->user()->id,
             'reply_by' => auth()->user()->id,
             'comment' => $request->message
         ]);
-        event(new SendTicketMessage($ticket, $message,auth()->user()));
+        if ($request->has('has_file')) {
+
+            $filenameWithExt = $request->file('file')->getClientOriginalName();
+
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+
+            $extension = $request->file('file')->getClientOriginalExtension();
+
+            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
+            $request->file('file')->storeAs('', $fileNameToStore, ['disk' => 'comment_attachments']);
+            CommentAttachments::create([
+                'path' => $fileNameToStore,
+                'name' => $filename,
+                'comment_reply_id' => $comment_reply->id
+            ]);
+        }
+        event(new SendTicketMessage($ticket, $message, auth()->user(),$fileNameToStore ?? false));
+        return response()->json([
+            'success' => true,
+            'file_url' => $fileNameToStore ?? false
+        ]);
     }
 
     public function build_chat_client($ticket_id)
@@ -150,14 +176,14 @@ class ClientTikect extends Controller
 
         $ticket = Ticket::query()->find($ticket_id);
 
-        $comments=Comment::query()->with('replies.sender')
-            ->where('ticket_id',$ticket_id)
-            ->orderBy('created_at','asc')
+        $comments = Comment::query()->with('replies.sender')
+            ->where('ticket_id', $ticket_id)
+            ->orderBy('created_at', 'asc')
             ->get();
 
         return response()->json([
             'success' => true,
-            'page' => view('m_design.Client.ticket.chat', ['replies' => $ticket->replies()->orderBy('created_at')->get(),'ticket' => $ticket])->render()
+            'page' => view('m_design.Client.ticket.chat', ['replies' => $ticket->replies()->orderBy('created_at')->get(), 'ticket' => $ticket])->render()
         ]);
 
     }
