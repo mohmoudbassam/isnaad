@@ -32,7 +32,7 @@
         });
     }
 
-    function showAlertMessage(type, message) {
+    function showAlertMessage(type, message,callback=null) {
         toastr.options = {
             "closeButton": true,
             "debug": true,
@@ -40,7 +40,7 @@
             "progressBar": false,
             "positionClass": "toast-bottom-left",
             "preventDuplicates": true,
-            "onclick": null,
+            "onclick": callback,
             "showDuration": "300",
             "hideDuration": "1000",
             "timeOut": "5000",

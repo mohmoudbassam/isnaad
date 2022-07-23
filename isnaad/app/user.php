@@ -4,6 +4,7 @@ namespace App;
 
 use App\Models\DeviceToken;
 use App\Models\role;
+use App\Models\Ticket;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -84,6 +85,21 @@ class user extends Authenticatable
     public function routeNotificationForFcm()
     {
         return $this->pc_device_token;
+    }
+
+    public function admin_recent_ticket()
+    {
+        return $this->belongsToMany(Ticket::class, 'ticket_assigned_to')->whereHas('status', function ($q) {
+            $q->where('name', 'opened');
+        });
+    }
+
+
+    public function client_recent_ticket()
+    {
+        return Ticket::query()->where('store_id', $this->store->account_id)->whereHas('status', function ($q) {
+            $q->where('name', 'opened');
+        })->latest()->get();
     }
 
 

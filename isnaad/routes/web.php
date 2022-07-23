@@ -690,13 +690,15 @@ Route::get('test-df',function(){
 //[['city_id', $city->id],['carrier_id',23]]
 
 ///client ticket
-Route::get('client-ticket','Client\ClientTikect@index')->name('client-ticket');
-Route::get('create-ticket','Client\ClientTikect@create')->name('create-ticket');
-Route::get('check-order-number/{order_number}','Client\ClientTikect@check_order')->name('check-order-number');
-Route::post('save','Client\ClientTikect@save')->name('save_ticket');
-Route::get('client_ticket_list','Client\ClientTikect@list')->name('client_ticket_list');
-Route::get('build_chat_client/{ticket_id}','Client\ClientTikect@build_chat_client')->name('build_chat_client');
-Route::post('send_ticket_message_client','Client\ClientTikect@send_ticket_message_client')->name('send_ticket_message_client');
+Route::middleware('auth')->group(function ($q){
+    Route::get('client-ticket','Client\ClientTikect@index')->name('client-ticket');
+    Route::get('create-ticket','Client\ClientTikect@create')->name('create-ticket');
+    Route::get('check-order-number/{order_number}','Client\ClientTikect@check_order')->name('check-order-number');
+    Route::post('save','Client\ClientTikect@save')->name('save_ticket');
+    Route::get('client_ticket_list','Client\ClientTikect@list')->name('client_ticket_list');
+    Route::get('build_chat_client/{ticket_id}','Client\ClientTikect@build_chat_client')->name('build_chat_client');
+    Route::post('send_ticket_message_client','Client\ClientTikect@send_ticket_message_client')->name('send_ticket_message_client');
+});
 ////admin ticket
 Route::name('admin_ticket')->prefix('admin-ticket')->middleware('auth')->group(function (){
     Route::get('','Ticket\TicketController@index');

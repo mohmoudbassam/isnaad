@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Client;
 
 use App\Events\SendTicketMessage;
+
+use App\Events\SendTicketNotification;
 use App\Helpers\helper;
 use App\Http\Controllers\Controller;
 use App\Models\Comment;
@@ -97,7 +99,7 @@ class ClientTikect extends Controller
     public function list()
     {
 
-        $ticket = Ticket::query()->with(['status', 'type'])
+        $ticket = Ticket::query()->with(['status', 'type'])->latest()
             ->where('store_id', auth()->user()->store->account_id);
         return DataTables::of($ticket)
             ->addColumn('actions', function ($item) {
@@ -135,6 +137,7 @@ class ClientTikect extends Controller
 
 
         $ticket = Ticket::query()->find($request->ticket_id);
+        $store=$ticket->store;
         $message = $request->message;
         $comment = Comment::query()->create([
             'ticket_id' => $ticket->id,
@@ -165,6 +168,11 @@ class ClientTikect extends Controller
             ]);
         }
         event(new SendTicketMessage($ticket, $message, auth()->user(),$fileNameToStore ?? false));
+        $ticket->user_assigned->each(function ($user)use($ticket,$store){
+
+            event(new SendTicketNotification($ticket,'you have a new  message from '.$store->name,$store,$user));
+        });
+
         return response()->json([
             'success' => true,
             'file_url' => $fileNameToStore ?? false

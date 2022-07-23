@@ -158,7 +158,8 @@
             <div class="card-footer align-items-center">
                 @if(!$ticket->is_closed())
                     <!--begin::Compose-->
-                    <textarea class="form-control border-0 p-0" rows="2" placeholder="Type a message"></textarea>
+                    <textarea class="form-control border-0 p-0" id="text-area" rows="2"
+                              placeholder="Type a message"></textarea>
                     <div class="d-flex align-items-center justify-content-between mt-5">
 
                         <div class="mr-3">
@@ -187,54 +188,13 @@
 
 <script>
 
-    // Enable pusher logging - don't include this in production
-
-
-    {{--var pusher = new Pusher('e3839e36abe630e8dfdf', {--}}
-    {{--    cluster: 'ap2',--}}
-
-    {{--    forceTLS: true,--}}
-    {{--    --}}{{--authEndpoint: '{{route('pusher_auth')}}',--}}
-
-    {{--    encrypted: true,--}}
-
-    {{--});--}}
-
-    {{--var channel = pusher.subscribe('ticket.'+'{{$ticket->id}}');--}}
-    {{--channel.bind('App\\Events\\SendTicketMessage', function(data) {--}}
-    {{--    var messagesEl = KTUtil.find('kt_chat_modal', '.messages');--}}
-    {{--    var scrollEl = KTUtil.find('kt_chat_modal', '.scroll');--}}
-    {{--    var textarea = KTUtil.find('kt_chat_modal', 'textarea');--}}
-
-
-    {{--    var node = document.createElement("DIV");--}}
-    {{--    KTUtil.addClass(node, 'd-flex flex-column mb-5 align-items-end');--}}
-
-    {{--    var html = '';--}}
-    {{--    html += '<div class="d-flex align-items-center">';--}}
-    {{--    html += '	<div>';--}}
-    {{--    html += '		<span class="text-muted font-size-sm">2 Hours</span>';--}}
-    {{--    html += '		<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">You</a>';--}}
-    {{--    html += '	</div>';--}}
-    {{--    html += '	<div class="symbol symbol-circle symbol-40 ml-3">';--}}
-    {{--    html += '		<img alt="Pic" src="assets/media/users/300_12.jpg"/>';--}}
-    {{--    html += '	</div>';--}}
-    {{--    html += '</div>';--}}
-    {{--    html += '<div class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">' + data.message + '</div>';--}}
-
-    {{--    KTUtil.setHTML(node, html);--}}
-
-    {{--    KTUtil.setHTML(node, html);--}}
-    {{--    messagesEl.appendChild(node);--}}
-
-    {{--});--}}
 </script>
 <script>
     var file = '';
 
     window.Echo.channel('ticket.' + '{{$ticket->id}}')
         .listen('SendTicketMessage', (e) => {
-            console.log(e)
+
             var messagesEl = KTUtil.find('kt_chat_modal', '.messages');
             var scrollEl = KTUtil.find('kt_chat_modal', '.scroll');
             var textarea = KTUtil.find('kt_chat_modal', 'textarea');
@@ -351,6 +311,27 @@
 
     asd('kt_chat_modal')
     $('#send-message').on('click', function () {
+        var textarea = KTUtil.find('kt_chat_modal', 'textarea');
+        var str = textarea.value
+
+        if ((!str || /^\s*$/.test(str)))
+            return;
+
+        send_message()
+    });
+    $('#text-area').on('keypress', function (e) {
+        var textarea = KTUtil.find('kt_chat_modal', 'textarea');
+        var str = textarea.value
+
+        if ((!str || /^\s*$/.test(str)))
+            return;
+
+        if (e.which == 13) {
+            send_message()
+        }
+    })
+
+    function send_message() {
         var messagesEl = KTUtil.find('kt_chat_modal', '.messages');
         var scrollEl = KTUtil.find('kt_chat_modal', '.scroll');
         var textarea = KTUtil.find('kt_chat_modal', 'textarea');
@@ -411,7 +392,7 @@
                 console.log(data);
             },
         });
-    });
+    }
 
     function closeTicket(id) {
 

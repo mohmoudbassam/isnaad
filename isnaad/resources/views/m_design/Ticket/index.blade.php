@@ -37,9 +37,34 @@
         </div>
         <div class="card-body">
 
-            <div class="row mb-6">
+            <div class="row">
+                <div class="col-lg-3 mb-lg-0 mb-6">
+                    <label>Store:</label>
+                    <select class="form-control datatable-input" id="store" data-col-index="6">
+                        <option value="">Select</option>
+                        @foreach($stores as $store)
+                            <option value="{{$store->account_id}}">{{$store->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col-lg-3 mb-lg-0 mb-6">
+                    <label>Store:</label>
+                    <select class="form-control datatable-input" id="status" data-col-index="6">
+                        @foreach($statuses as $status)
+                            <option value="{{$status->id}}"
+                                    @if($status->name=='opened')selected @endif>{{$status->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col-lg-3 mb-lg-0 mb-6 mt-7">
+                    <button class="btn btn-primary btn-primary--icon" id="searchAll">
+													<span>
+														<i class="la la-search"></i>
+														<span>Search</span>
+													</span>
+                    </button>&nbsp;&nbsp;
 
-
+                </div>
             </div>
 
 
@@ -59,9 +84,6 @@
     </div>
     <div class="modal fade bd-example-modal-lg" id="page_modal" data-backdrop="static" data-keyboard="false"
          role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-
-    </div>
-    <div class="modal modal-sticky modal-sticky-bottom-right" id="kt_chat_modal" role="dialog" data-backdrop="false">
 
     </div>
 
@@ -88,7 +110,8 @@
                         url: '{!! route('admin_ticket.list') !!}',
                         type: 'GET',
                         data: function (d) {
-
+                            d.status = $('#status').val();
+                            d.store = $('#store').val()
                         },
                     },
                     columns: [
@@ -147,7 +170,11 @@
                 },
             });
         }
+        $('#searchAll').click(function () {
 
+            $('#kt_datatable').DataTable().ajax.reload();
+
+        });
 
         $('#send-message').on('click', function () {
             var messagesEl = KTUtil.find('kt_chat_modal', '.messages');
@@ -185,7 +212,7 @@
             });
         })
 
-        function  assign(ticket_id){
+        function assign(ticket_id) {
             var url = '{{route('admin_ticket.assign_form',':ticket_id')}}';
 
             url = url.replace(':ticket_id', ticket_id);

@@ -33,5 +33,4 @@ window.Echo = new Echo({
     forceTLS: false,
 
 });
-console.log(window.Echo)
-console.log('testest')
+

@@ -18,7 +18,7 @@
             <!--begin::Body-->
             <div class="card-body">
                 <!--begin::Scroll-->
-                <div class="scroll scroll-pull" data-height="500" data-mobile-height="300">
+                <div class="scroll scroll-pull" data-height="375" data-mobile-height="300">
                     <!--begin::Messages-->
                     <div class="messages">
                         <!--begin::Message In-->
@@ -35,7 +35,7 @@
                                                class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">You</a>
                                         </div>
                                         <div class="symbol symbol-circle symbol-40 ml-3">
-                                            <img alt="Pic" src="{{url('uploads/isnaadlogo.png')}}"/>
+                                            <img alt="Pic" src="{{url('uploads/store_placeholder.png')}}"/>
                                         </div>
                                     </div>
 
@@ -53,7 +53,7 @@
                                 <div class="d-flex flex-column mb-5 align-items-start">
                                     <div class="d-flex align-items-center">
                                         <div class="symbol symbol-circle symbol-40 mr-3">
-                                            <img alt="Pic" src="{{url('uploads/store_placeholder.png')}}"/>
+                                            <img alt="Pic" src="{{url('uploads/isnaadlogo.png')}}"/>
                                         </div>
                                         <div>
                                             <a href="#"
@@ -139,7 +139,7 @@
             var html = '';
             html += '<div class="d-flex align-items-center">';
             html += '	<div class="symbol symbol-circle symbol-40 mr-3">';
-            html += '		<img alt="Pic" src="{{url('uploads/store_placeholder.png')}}"/>';
+            html += '		<img alt="Pic" src="{{url('uploads/isnaadlogo.png')}}"/>';
             html += '	</div>';
             html += '	<div>';
             html += '		<a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">' + e.user.name + '</a>';

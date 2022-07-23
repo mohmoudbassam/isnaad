@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Ticket;
 
 
 use App\Events\SendTicketMessage;
+use App\Events\SendTicketNotification;
 use App\Http\Controllers\Controller;
 use App\Models\Comment;
 use App\Models\CommentAttachments;
@@ -14,6 +15,7 @@ use App\Models\TicketFiles;
 use App\Models\TicketStatus;
 use App\user;
 use Illuminate\Http\Request;
+use Illuminate\Session\Store;
 use Illuminate\Support\Facades\Response;
 use Yajra\DataTables\DataTables;
 
@@ -23,21 +25,27 @@ class TicketController extends Controller
 
     public function index()
     {
-        return view('m_design.Ticket.index');
+        $data['stores'] = \App\store::query()->where('active', 1)->get();
+        $data['statuses'] = TicketStatus::query()->get();
+        return view('m_design.Ticket.index', $data);
     }
 
-    public function list()
+    public function list(Request $request)
     {
 
 
-        $ticket = Ticket::query()->with('status')->with('store');
+        $ticket = Ticket::query()->with('status')->with('store')->latest();
 
         if (!auth()->user()->can('ticket_assign')) {
             $ticket->whereHas('user_assigned', function ($q) {
                 $q->where('user_id', auth()->user()->id);
             });
         }
-
+        if ($request->status) {
+            $ticket->where('status_id', $request->status);
+        }  if ($request->store) {
+            $ticket->where('store_id', $request->store);
+        }
         return DataTables::of($ticket)
             ->addColumn('actions', function ($item) {
 
@@ -121,7 +129,7 @@ class TicketController extends Controller
 
 
         $ticket = Ticket::query()->find($request->ticket_id);
-
+        $store=$ticket->store;
 
         $message = $request->message;
         $comment = Comment::query()->whereHas('created_by', function ($q) {
@@ -133,7 +141,7 @@ class TicketController extends Controller
             'created_by' => auth()->user()->id
         ]);
 
-        $comment_reply= CommentReply::query()->create([
+        $comment_reply = CommentReply::query()->create([
             'comment_id' => $comment->id,
             'send_by' => auth()->user()->id,
             'reply_by' => auth()->user()->id,
@@ -156,7 +164,8 @@ class TicketController extends Controller
             ]);
         }
 
-        event((new SendTicketMessage($ticket, $message, auth()->user(),$fileNameToStore ?? false))->dontBroadcastToCurrentUser());
+        event((new SendTicketMessage($ticket, $message, auth()->user(), $fileNameToStore ?? false))->dontBroadcastToCurrentUser());
+        event(new SendTicketNotification($ticket,'you have a new  message from '.auth()->user()->name,$store,$store->user));
         return response()->json([
             'success' => true,
             'file_url' => $fileNameToStore ?? false
@@ -214,9 +223,10 @@ class TicketController extends Controller
         ]);
     }
 
-    public function download($id){
-      $attachment=  CommentAttachments::find($id);
-      return Response::download('comment_attachemnt/'.$attachment->path);
+    public function download($id)
+    {
+        $attachment = CommentAttachments::find($id);
+        return Response::download('comment_attachemnt/' . $attachment->path);
     }
 
 }
